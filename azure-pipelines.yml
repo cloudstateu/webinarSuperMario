@@ -10,12 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: ls
+- script: cp deploy.yml $(Build.ArtifactStagingDirectory)/deploy.yml
   displayName: 'Run a one-line script'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+    echo See art catalog:
+    ls $(Build.ArtifactStagingDirectory)
   displayName: 'Run a multi-line script'
 - task: PublishBuildArtifacts@1
   inputs:
