@@ -10,13 +10,15 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: cp deploy.yml $(Build.ArtifactStagingDirectory)/deploy.yml
-  displayName: 'Run a one-line script'
+- script: 
+    cp deploy.yml $(Build.ArtifactStagingDirectory)/deploy.yml
+    cp service.yml $(Build.ArtifactStagingDirectory)/service.yml
+  displayName: 'Copy deployment files to artifacts'
 
 - script: |
     echo See art catalog:
     ls $(Build.ArtifactStagingDirectory)
-  displayName: 'Run a multi-line script'
+  displayName: 'Check files'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
