@@ -12,8 +12,11 @@ pool:
 steps:
 - script: 
     cp deploy.yml $(Build.ArtifactStagingDirectory)/deploy.yml
-    cp service.yml $(Build.ArtifactStagingDirectory)/service.yml
   displayName: 'Copy deployment files to artifacts'
+
+- script: 
+    cp service.yml $(Build.ArtifactStagingDirectory)/service.yml
+  displayName: 'Copy service files to artifacts'
 
 - script: |
     echo See art catalog:
